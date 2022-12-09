@@ -58,12 +58,12 @@ WHERE p.ID={post_id} AND p.ID=tr.object_id AND tr.term_taxonomy_id=tt.term_taxon
 
 def main():
     post_types = [
-        "series",
-        "attachment",
-        # "revision",
+        "tvshows",
+        "seasons",
+        "revision",
+        "episodes",
         "movies",
-        # "episodes",
-        # "post",
+        "attachment",
         # "seasons",
     ]
     for post_type in post_types:

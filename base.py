@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 from helper import helper
 from settings import CONFIG
-from torotheme import Torotheme
+from dootheme import Dootheme
 
 logging.basicConfig(format="%(asctime)s %(levelname)s:%(message)s", level=logging.INFO)
 
@@ -55,7 +55,7 @@ class Crawler:
 
         return res
 
-    def crawl_film(self, href: str, post_type: str = "series"):
+    def crawl_film(self, href: str, post_type: str = "tvshows"):
         soup = self.crawl_soup(href)
 
         title, description = helper.get_title_and_description(soup)
@@ -91,7 +91,7 @@ class Crawler:
 
         return [film_data, episodes_data]
 
-    def crawl_page(self, url, post_type: str = "series"):
+    def crawl_page(self, url, post_type: str = "tvshows"):
 
         soup = self.crawl_soup(url)
 
@@ -114,7 +114,7 @@ class Crawler:
                     href=href, post_type=post_type
                 )
 
-                Torotheme(film_data, episodes_data).insert_film()
+                Dootheme(film_data, episodes_data).insert_film()
             except Exception as e:
                 helper.error_log(f"Failed to get href\n{item}\n{e}", "page.log")
 
