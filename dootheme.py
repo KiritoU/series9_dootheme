@@ -409,7 +409,7 @@ class Dootheme:
                     ),
                     (
                         episode_id,
-                        "dt_poster",
+                        "dt_backdrop",
                         self.film["poster_url"],
                     ),
                     (episode_id, "ids", post_id),

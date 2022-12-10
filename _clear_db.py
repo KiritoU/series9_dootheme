@@ -60,10 +60,10 @@ def main():
     post_types = [
         "tvshows",
         "seasons",
-        "revision",
+        # "revision",
         "episodes",
         "movies",
-        "attachment",
+        # "attachment",
         # "seasons",
     ]
     for post_type in post_types:
