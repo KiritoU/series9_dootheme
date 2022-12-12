@@ -341,9 +341,11 @@ class Dootheme:
         for i, link in enumerate(links):
             video_players[i] = {
                 "name": f"Server {i}",
-                "select": "iframe",
+                # "select": "iframe", URL Embed
+                "select": "dtshcode",
                 "idioma": "",
-                "url": link,
+                # "url": link, URL Embed
+                "url": CONFIG.IFRAME.format(link),
             }
 
         video_players_serialize = serialize(video_players)
