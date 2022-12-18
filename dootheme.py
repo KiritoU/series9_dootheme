@@ -11,6 +11,8 @@ from settings import CONFIG
 
 logging.basicConfig(format="%(asctime)s %(levelname)s:%(message)s", level=logging.INFO)
 
+EPISODE_COVER = False
+
 KEY_MAPPING = {
     "IMDb": "imdbRating",
     "Duration": "episode_run_time",
@@ -409,11 +411,6 @@ class Dootheme:
                         "episode_name",
                         episode_title,
                     ),
-                    (
-                        episode_id,
-                        "dt_backdrop",
-                        self.film["poster_url"],
-                    ),
                     (episode_id, "ids", post_id),
                     (episode_id, "clgnrt", "1"),
                     (
@@ -428,6 +425,15 @@ class Dootheme:
                         f"{int(self.get_timeupdate().timestamp())}:1",
                     ),
                 ]
+
+                if EPISODE_COVER:
+                    episode_postmeta.append(
+                        (
+                            episode_id,
+                            "dt_backdrop",
+                            self.film["poster_url"],
+                        )
+                    )
 
                 # if "air_date" in self.film.keys():
                 #     episode_postmeta.append(
